@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8">
+
+<UIScene name="SCREEN_SAVEGAMENAME" width=388 height=160 x=ALIGN_CENTER y=ALIGN_CENTER modal=true fadeout="0.2" fadein="0.2" idleexpiretime="1.0"
+OnAdd=UIScene_OnAdd_SetFocus("SAVEGAMENAME_FIELD") priority="SCENE_GLOBAL"/>
+	
+	<UIText name="SAVEGAMENAME_FIELD" x=ALIGN_CENTER y=60 align=left valign=middle width=190 height=28 editable=true maxlength=26 selectable="true" multiline="false" fontfamily="Default"
+		update=true OnUpdate=UIText_OnUpdate_SetDefaultSaveGameName() filter="alphanumeric" allowspace=true
+		OnReturn=UIText_OnReturn_SaveGameWithName() />	
+
+	<!-- Savegame Name Frame-->
+	<UIFrame x=ALIGN_CENTER	y=60 width=200 height=28 topleft="tp_frame_tl.tga" topright="tp_frame_tr.tga" bottomleft="tp_frame_bl.tga"
+		bottomright="tp_frame_BR.tga" top="tp_frame_t.tga" bottom="tp_frame_b.tga"
+		left="tp_frame_l.tga" right="tp_frame_r.tga" fillstyle="stretch" fill="tp_frame_bg.tga"
+		border=5 />
+
+	<!-- BUTTON CONTAINER -->
+	<UIPane name="BUTTON_CONTAINER" x=ALIGN_CENTER y=100 width=210 height=32 >
+		<!-- OK Button -->
+		<UIButton name="OK_BUTTON" strref="66" x=0 y=0 style="STYLE_SMALL_BUTTON" height=32 width=100 
+			OnLeftClick=UIButton_Input_SaveGameWithName("SAVEGAMENAME_FIELD") >
+		</UIButton>
+
+		<!-- Cancel Button -->
+		<UIButton name="CANCEL_BUTTON" strref="67" x=110 y=0 style="STYLE_SMALL_BUTTON" height=32 width=100 
+			OnLeftClick=UIButton_Input_ScreenClose() >
+		</UIButton>
+	</UIPane>
+
+	<!-- Top Detail -->
+	<UIText name="TITLE" strref="181412" x=20 y=4 width=300 height=31 align=left valign=middle fontfamily="Title_Font" style="2"/>
+	<UIIcon name="DETAIL_TOP" img="title_medium03.tga" x=10 y=8 width=369 height=31 ignoreevents="true" />
+
+	<!-- Main Window -->
+	<UIFrame width=PARENT_WIDTH height=PARENT_HEIGHT topleft="frame1_tl.tga" topright="frame1_tr.tga" bottomleft="frame1_bl.tga"
+	bottomright="frame1_BR.tga" top="frame1_t.tga" bottom="frame1_b.tga"
+	left="frame1_l.tga" right="frame1_r.tga" border=32 />	
+	
+	<UIFrame x=7 y=8 width=374 height=144 fillstyle="tile" fill="cloth_bg.tga"/>		
