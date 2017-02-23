@@ -1,21 +1,24 @@
 #include <iostream>
 #include <string>
-//#include "../config.h"
-//#include "../common/ustring.h"
+// #include "../config.h"
+// #include "../common/ustring.h"
 
+bool isSpace(int sign);
 std::string fixLine(std::string line);
 std::string parseLine(std::string line);
 std::string trim(std::string line);
+std::string extractComment(std::string line);
 std::string fixOpenQuotes(std::string line);
 std::string escapeInnerQuotes(std::string line);
-std::string replaceString(std::string& origStr, std::string& oldText, std::string newText);
-void replaceAll(std::string& str, const std::string& from, const std::string& to);
+std::string replaceString(std::string &origStr, std::string &oldText, std::string newText);
+void replaceAll(std::string &str, const std::string &from, const std::string &to);
 int countOccurances(std::string line, char find);
 std::string fixCopyright(std::string line);
 std::string fixXMLTag(std::string line);
 std::string doubleDashFix(std::string line);
 std::string tripleQuoteFix(std::string line);
-void countComments(std::string line);
+void checkBeginComment(std::string line);
+void checkEndComment(std::string line);
 std::string quotedCloseFix(std::string line);
 std::string escapeSpacedStrings(std::string line, bool undo);
 std::string fixMismatchedParen(std::string line);
